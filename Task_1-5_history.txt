@@ -1,0 +1,21 @@
+  125  mkdir Kennel
+  126  cd ~/Kennel
+  127  cat > home_animals
+  128  cat > pack_animals
+  129  cat home_animals pack_animals > animals
+  130  cat animals
+  131  mv animals mans_friends
+  132  cd ..
+  133  mkdir Kennel_new
+  134  cd ~/Kennel
+  135  mv mans_friends ~/Kennel_new
+  136  cd ~/Kennel_new
+  137  ls -ali
+  138  cd ..
+  139  sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.26-1_all.deb
+  140  sudo dpkg -i mysql-apt-config_0.8.26-1_all.deb
+  141  sudo apt-get update
+  142  sudo apt-get install mysql-server
+  143  sudo dpkg -i deadbeef_1.9.5-dmo3_amd64.deb
+  144  sudo dpkg -r deadbeef
+  145  history

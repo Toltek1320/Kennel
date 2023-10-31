@@ -1,0 +1,150 @@
+rus@runtu2:~$ mkdir Kennel
+rus@runtu2:~$ cd ~/Kennel
+rus@runtu2:~/Kennel$ cat > home_animals
+cat dog hamster
+^C
+rus@runtu2:~/Kennel$ cat > pack_animals
+horse camel donkey
+^C
+rus@runtu2:~/Kennel$ cat home_animals pack_animals > animals
+rus@runtu2:~/Kennel$ cat animals
+cat dog hamster
+horse camel donkey
+rus@runtu2:~/Kennel$ mv animals mans_friends
+rus@runtu2:~/Kennel$ cd ..
+rus@runtu2:~$ mkdir Kennel_new
+rus@runtu2:~$ cd ~/Kennel
+rus@runtu2:~/Kennel$ mv mans_friends ~/Kennel_new
+rus@runtu2:~/Kennel$ cd ~/Kennel_new
+rus@runtu2:~/Kennel_new$ ls -ali
+итого 12
+1573623 drwxrwxr-x  2 rus rus 4096 окт 30 15:20 .
+1572988 drwxr-x--- 22 rus rus 4096 окт 30 15:19 ..
+1573622 -rw-rw-r--  1 rus rus   35 окт 30 15:09 mans_friends
+rus@runtu2:~/Kennel_new$ cd ..
+rus@runtu2:~$ sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.26-1_all.deb
+[sudo] пароль для rus: 
+--2023-10-30 15:36:39--  https://dev.mysql.com/get/mysql-apt-config_0.8.26-1_all.deb
+Распознаётся dev.mysql.com (dev.mysql.com)… 23.61.243.80, 2001:2030:21:1a9::2e31, 2001:2030:21:19e::2e31
+Подключение к dev.mysql.com (dev.mysql.com)|23.61.243.80|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 302 Moved Temporarily
+Адрес: https://repo.mysql.com//mysql-apt-config_0.8.26-1_all.deb [переход]
+--2023-10-30 15:36:40--  https://repo.mysql.com//mysql-apt-config_0.8.26-1_all.deb
+Распознаётся repo.mysql.com (repo.mysql.com)… 23.210.173.94, 2a02:26f0:9500:b8a::1d68, 2a02:26f0:9500:b83::1d68
+Подключение к repo.mysql.com (repo.mysql.com)|23.210.173.94|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 18088 (18K) [application/x-debian-package]
+Сохранение в: ‘mysql-apt-config_0.8.26-1_all.deb’
+
+mysql-apt-config_0.8.26-1_all 100%[===============================================>]  17,66K  --.-KB/s    за 0s      
+
+2023-10-30 15:36:40 (65,1 MB/s) - ‘mysql-apt-config_0.8.26-1_all.deb’ сохранён [18088/18088]
+
+rus@runtu2:~$ sudo dpkg -i mysql-apt-config_0.8.26-1_all.deb
+Выбор ранее не выбранного пакета mysql-apt-config.
+(Чтение базы данных … на данный момент установлен 293871 файл и каталог.)
+Подготовка к распаковке mysql-apt-config_0.8.26-1_all.deb …
+Распаковывается mysql-apt-config (0.8.26-1) …
+Настраивается пакет mysql-apt-config (0.8.26-1) …
+rus@runtu2:~$ sudo apt-get update
+Пол:1 http://repo.mysql.com/apt/ubuntu jammy InRelease [20,2 kB]
+Сущ:2 http://archive.ubuntu.com/ubuntu jammy InRelease                                                               
+Сущ:3 http://archive.canonical.com/ubuntu jammy InRelease                                                            
+Сущ:4 https://download.docker.com/linux/ubuntu focal InRelease                                                       
+Пол:5 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 Sources [963 B]                                               
+Пол:6 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]                                              
+Пол:7 http://repo.mysql.com/apt/ubuntu jammy/mysql-apt-config amd64 Packages [565 B]                                 
+Пол:8 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 Packages [12,6 kB]                                      
+Пол:9 http://repo.mysql.com/apt/ubuntu jammy/mysql-tools amd64 Packages [7 994 B]                                    
+Сущ:10 https://ppa.launchpadcontent.net/alex-p/deadbeef/ubuntu jammy InRelease                                     
+Сущ:11 https://ppa.launchpadcontent.net/danielrichter2007/grub-customizer/ubuntu jammy InRelease       
+Пол:12 http://archive.ubuntu.com/ubuntu jammy-security InRelease [110 kB]                                   
+Сущ:13 https://ppa.launchpadcontent.net/eivnaes/network-manager-sstp/ubuntu jammy InRelease                 
+Пол:14 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [109 kB]                                    
+Пол:15 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [996 kB]                        
+Сущ:16 https://ppa.launchpadcontent.net/helkaluin/webp-pixbuf-loader/ubuntu jammy InRelease
+Пол:17 https://ppa.launchpadcontent.net/kelebek333/nvidia-legacy/ubuntu jammy InRelease [18,1 kB]   
+Пол:18 http://archive.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [794 kB]                              
+Сущ:19 https://ppa.launchpadcontent.net/libreoffice/ppa/ubuntu jammy InRelease                                
+Сущ:20 https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu jammy InRelease
+Получено 2 189 kB за 4с (548 kB/s)                                  
+Чтение списков пакетов… Готово
+W: https://download.docker.com/linux/ubuntu/dists/focal/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+rus@runtu2:~$ sudo apt-get install mysql-server
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+Будут установлены следующие дополнительные пакеты:
+  libmecab2 mysql-client mysql-common mysql-community-client mysql-community-client-core
+  mysql-community-client-plugins mysql-community-server mysql-community-server-core
+Рекомендуемые пакеты:
+  mecab-ipadic-utf8
+Следующие НОВЫЕ пакеты будут установлены:
+  libmecab2 mysql-client mysql-common mysql-community-client mysql-community-client-core
+  mysql-community-client-plugins mysql-community-server mysql-community-server-core mysql-server
+Обновлено 0 пакетов, установлено 9 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+Необходимо скачать 31,1 MB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 218 MB.
+Хотите продолжить? [Д/н] 
+Пол:1 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-common amd64 8.0.35-1ubuntu22.04 [67,9 kB]
+Пол:2 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmecab2 amd64 0.996-14build9 [199 kB]
+Пол:3 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-community-client-plugins amd64 8.0.35-1ubuntu22.04 [1 443 kB]
+Пол:4 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-community-client-core amd64 8.0.35-1ubuntu22.04 [2 120 kB]
+Пол:5 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-community-client amd64 8.0.35-1ubuntu22.04 [2 195 kB]
+Пол:6 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-client amd64 8.0.35-1ubuntu22.04 [66,6 kB]
+Пол:7 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-community-server-core amd64 8.0.35-1ubuntu22.04 [24,8 MB]
+Пол:8 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-community-server amd64 8.0.35-1ubuntu22.04 [78,3 kB]
+Пол:9 http://repo.mysql.com/apt/ubuntu jammy/mysql-8.0 amd64 mysql-server amd64 8.0.35-1ubuntu22.04 [66,6 kB]        
+Получено 31,1 MB за 19с (1 626 kB/s)                                                                                 
+Предварительная настройка пакетов …
+Выбор ранее не выбранного пакета mysql-common.
+(Чтение базы данных … на данный момент установлено 293876 файлов и каталогов.)
+Подготовка к распаковке …/0-mysql-common_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-common (8.0.35-1ubuntu22.04) …
+Выбор ранее не выбранного пакета mysql-community-client-plugins.
+Подготовка к распаковке …/1-mysql-community-client-plugins_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-community-client-plugins (8.0.35-1ubuntu22.04) …
+Выбор ранее не выбранного пакета mysql-community-client-core.
+Подготовка к распаковке …/2-mysql-community-client-core_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-community-client-core (8.0.35-1ubuntu22.04) …
+Выбор ранее не выбранного пакета mysql-community-client.
+Подготовка к распаковке …/3-mysql-community-client_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-community-client (8.0.35-1ubuntu22.04) …
+Выбор ранее не выбранного пакета mysql-client.
+Подготовка к распаковке …/4-mysql-client_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-client (8.0.35-1ubuntu22.04) …
+Выбор ранее не выбранного пакета libmecab2:amd64.
+Подготовка к распаковке …/5-libmecab2_0.996-14build9_amd64.deb …
+Распаковывается libmecab2:amd64 (0.996-14build9) …
+Выбор ранее не выбранного пакета mysql-community-server-core.
+Подготовка к распаковке …/6-mysql-community-server-core_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-community-server-core (8.0.35-1ubuntu22.04) …
+Выбор ранее не выбранного пакета mysql-community-server.
+Подготовка к распаковке …/7-mysql-community-server_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-community-server (8.0.35-1ubuntu22.04) …
+Выбор ранее не выбранного пакета mysql-server.
+Подготовка к распаковке …/8-mysql-server_8.0.35-1ubuntu22.04_amd64.deb …
+Распаковывается mysql-server (8.0.35-1ubuntu22.04) …
+Настраивается пакет libmecab2:amd64 (0.996-14build9) …
+Настраивается пакет mysql-common (8.0.35-1ubuntu22.04) …
+update-alternatives: используется /etc/mysql/my.cnf.fallback для предоставления /etc/mysql/my.cnf (my.cnf) в автоматическом режиме
+Настраивается пакет mysql-community-server-core (8.0.35-1ubuntu22.04) …
+Настраивается пакет mysql-community-client-plugins (8.0.35-1ubuntu22.04) …
+Настраивается пакет mysql-community-client-core (8.0.35-1ubuntu22.04) …
+Настраивается пакет mysql-community-client (8.0.35-1ubuntu22.04) …
+Настраивается пакет mysql-client (8.0.35-1ubuntu22.04) …
+Настраивается пакет mysql-community-server (8.0.35-1ubuntu22.04) …
+update-alternatives: используется /etc/mysql/mysql.cnf для предоставления /etc/mysql/my.cnf (my.cnf) в автоматическом режиме
+Created symlink /etc/systemd/system/multi-user.target.wants/mysql.service → /lib/systemd/system/mysql.service.
+Настраивается пакет mysql-server (8.0.35-1ubuntu22.04) …
+Обрабатываются триггеры для man-db (2.10.2-1) …
+Обрабатываются триггеры для libc-bin (2.35-0ubuntu3.4) …
+rus@runtu2:~/Загрузки$ sudo dpkg -i deadbeef_1.9.5-dmo3_amd64.deb
+[sudo] пароль для rus: 
+(Чтение базы данных … на данный момент установлено 294172 файла и каталога.)
+Подготовка к распаковке deadbeef_1.9.5-dmo3_amd64.deb …
+Распаковывается deadbeef (1.9.5-dmo3) на замену (1.8.8-nap3ppa1~jammy1) …
+Обрабатываются триггеры для desktop-file-utils (0.26-1ubuntu3) …
+Обрабатываются триггеры для hicolor-icon-theme (0.17-2) …
+Обрабатываются триггеры для man-db (2.10.2-1) …
+rus@runtu2:~/Загрузки$ sudo dpkg -r deadbeef
